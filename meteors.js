@@ -1,139 +1,64 @@
-var x = 360;
-var y = 180;
 
-function setup() {
-  createCanvas(x, y);
-  rectMode(CENTER);
+    let myMap;
+    let canvas;
+    const mappa = new Mappa('Leaflet');
+    const options = {
+      lat: 49.263463,
+      lng: -123.251137,
+      zoom: 2.5,
+      style: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}"
+}
 
 
-  lat = createInput("0","number").size(42,20);
-  lat.position(120, 190);
+    // p5.js setup
+    function setup(){
+      // Create a canvas 640x640
+      canvas = createCanvas(640,640);
+      // Add a grey background
+      //background(100);
 
-  long = createInput("0","number").size(42,20);
-  long.position(120,220);
+      myMap = mappa.tileMap(options);
+      // Overlay the canvas over the tile map
+      myMap.overlay(canvas);
 
-  dataValue = createInput("0","number").size(42,20);
-  dataValue.position(120,250);
+      //Load the data
+      meteorites = loadTable('Meteor-Landings.csv', 'csv', 'header');
 
-  latLabelPrefix= createElement('p', 'Set latitude to');
-  latLabelPrefix.position(9, 177);
+      // add color to the ellipse
+      fill(117, 73, 41)
 
-  longLabelPrefix= createElement('p', 'Set longitude to');
-  longLabelPrefix.position(9, 207);
+      myMap.onChange(drawMeteorites);
 
-  magLabelPrefix= createElement('p', 'Set magnitude to');
-  magLabelPrefix.position(9, 237);
+    }
 
+    // p5.js draw
+function draw(){
+}
+
+function drawMeteorites() {
+  // Clear the canvas
+  clear();
+
+  for (let i = 0; i < meteorites.getRowCount(); i++) {
+    // Get the lat/lng of each meteorite
+    const latitude = Number(meteorites.getString(i, 'reclat'));
+    const longitude = Number(meteorites.getString(i, 'reclong'));
+
+    // Only draw them if the position is inside the current map bounds. We use a
+    // Leaflet method to check if the lat and lng are contain inside the current
+    // map. This way we draw just what we are going to see and not everything. See
+    // getBounds() in http://leafletjs.com/reference-1.1.0.html
+    if (myMap.map.getBounds().contains({lat: latitude, lng: longitude})) {
+      // Transform lat/lng to pixel position
+      const pos = myMap.latLngToPixel(latitude, longitude);
+      // Get the size of the meteorite and map it. 60000000 is the mass of the largest
+      // meteorite (https://en.wikipedia.org/wiki/Hoba_meteorite)
+      let size = meteorites.getString(i, 'mass (g)');
+      size = map(size, 558, 60000000, 1, 25) + myMap.zoom();
+      fill(117, 73, 41);
+      ellipse(pos.x, pos.y, size, size);
+    }
+  }
 
 }
 
-function draw() {
-  background(220);
-
-
-  longCoord = Number(
-    long.value(),
-    10) + 180;
-
-
-  latCoord = 90 - Number(
-    lat.value(),
-    10);
-
-  longCoordInput = Number(
-    long.value(),
-    10);
-
-  latCoordInput = Number(
-    lat.value(),
-    10);
-
-
-
-  // return to this later
-  var objectProperty;
-
-  objectProperty = Number(dataValue.value(), 10)
-
-  var rightColor = getRightColor(objectProperty);
-
-  // let's make one for the width
-
-  var rightWidth = getWidth(objectProperty);
-
-  // shape to be drawn
-
-  var hasValidInput = isValidInput(longCoordInput, latCoordInput);
-
-  var itIsCloseToObject = isCloseToObject(longCoord, latCoord, mouseX, mouseY);
-
-  var isClose =  isCloseToObject(longCoord, latCoord, mouseX, mouseY);
-
-
-
- if ((itIsCloseToObject === true) && (objectProperty>= 0)) {
-    fill(rightColor);
-    line(longCoord, latCoord, longCoord+20, latCoord+20);
-    rect(longCoord + 20, latCoord, rightWidth, 20);
-  } else if((itIsCloseToObject === true) && (objectProperty<0)) {
-    fill(255, 0, 0);
-    stroke(255, 0, 0);
-    text("X", longCoord +20, latCoord);
-    } else {
-    if ((hasValidInput === true) && (objectProperty>= 0)) {
-    fill(rightColor);
-    noStroke();
-    rect(longCoord, latCoord, rightWidth, 20);
-  } else if ((hasValidInput) && (objectProperty<0)) {
-    fill(255, 0, 0);
-    stroke(255, 0, 0);
-    text("X", longCoord, latCoord);
-  }
-  };
-
-}
-
-function getRightColor(input) {
-  if (input < 0) {
-    return color(255, 0, 0);
-  } else if (input => 0) {
-    return color(0, 0, 0);
-  }
-}
-
-function getWidth(input) {
-  if (input > 200) {
-    return 15;
-    } else if (input <= 200 && input > 100) {
-      return 10;
-    } else if (input <= 100 && input >= 0) {
-      return 5;
-  }
-}
-
-/*function isValidInput(latCoord, longCoord) {
-  if ((longCoord >= -180 || longCoord <= 180) && (latCoord >= -90 || latCoord <=90)) {
-    return true;
-  } else {
-    return false;
-  }
-}
-*/
-
-function isValidInput(num1, num2) {
-  if ((num1 < -180 || num1 > 180) || (num2 < -90 || num2 > 90)) {
-    return false;
-  } else {
-    return true;
-  }
-};
-
-// create a function in which is mouseX and mouseY is within a certain proximity of latCoord and longCoord
-
-function isCloseToObject(position1, position2, long1, lat1) {
-  if ((dist(position1, position2, long1, lat1) < 10)) {
-      return true;
-      } else {
-        return false;
-  }
-};
