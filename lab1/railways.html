@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Railway privatization in Norway</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    h2,
+    h3 {
+      margin: 10px;
+      font-size: 18px;
+    }
+    h3 {
+      font-size: 16px;
+    }
+    p {
+      margin: 10px;
+    }
+    .map-overlay {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background: #fff;
+      margin-right: 20px;
+      font-family: Arial, sans-serif;
+      overflow: auto;
+      border-radius: 3px;
+    }
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+    #features {
+      top: 0;
+      height: 90px;
+      margin-top: 20px;
+      margin-right: 50px;
+      background: #EBEBEB;
+      width: 300px;
+    }
+    #legend {
+      padding: 10px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      line-height: 18px;
+      height: 170px;
+      margin-bottom: 40px;
+      width: 190px;
+    }
+    .legend-key {
+      display: inline-block;
+      border-radius: 20%;
+      width: 10px;
+      height: 10px;
+      margin-right: 5px;
+    }
+    .mapboxgl-popup {
+        max-width: 400px;
+        font: 12px/20px 'Arial', Arial, Helvetica, sans-serif;
+    }
+
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div class="map-overlay" id="features">
+      <h2>Railway privatization in Norway</h2>
+      <p> Click on a railway icon for information on individual railway lines</p>
+      <div id="pd"><p></p></div>
+    </div>
+    <div class="map-overlay" id="legend"></div>
+
+
+    <script>
+      mapboxgl.accessToken =
+        'pk.eyJ1Ijoic2hlbm51bSIsImEiOiJja3l1dnQ0MWIxczVkMnJsZXZ3NzVhaGo4In0.jMo1O2BeJu6bXmSJGnZGlQ';
+      const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/shennum/cl00hxzow001615n2k0j7p61i',
+        center: [11.4929, 63.9],
+        zoom: 5,
+        bearing: -60,
+        maxZoom: 11.5
+      });
+
+    //    map.moveLayer('settlement-major-label')
+
+      map.addControl(new mapboxgl.NavigationControl());
+
+
+      map.on('load', function() {
+        map.getCanvas().style.cursor = 'default';
+
+
+        const layers = [
+          'Railway Operator',
+          '<a href="https://www.vy.no/en" target="_blank">Vy</a>',
+          '<a href="https://www.sj.se/en/home.html#/" target="_blank">SJ</a>',
+          '<a href="https://go-aheadnordic.no/" target="_blank">Go-Ahead Nordic</a>',
+          '<a href="https://flytoget.no/en/" target="_blank">Flytoget AS</a>',
+          '',
+          'Population Density',
+          'Lower',
+          'Higher'
+        ];
+        const colors = [
+          '#ffffff',
+          '#f24551',
+          '#5cadf0',
+          '#7d7d7d',
+          '#37cb15',
+          '#ffffff',
+          '#ffffff',
+          '#ded599',
+          '#6F5943'
+        ];
+
+
+
+
+        // create legend
+        const legend = document.getElementById('legend');
+
+        layers.forEach((layer, i) => {
+          const color = colors[i];
+          const item = document.createElement('div');
+          const key = document.createElement('span');
+          key.className = 'legend-key';
+          key.style.backgroundColor = color;
+
+          const value = document.createElement('span');
+          value.innerHTML = `${layer}`;
+          item.appendChild(key);
+          item.appendChild(value);
+          legend.appendChild(item);
+        });
+
+      });
+
+      // Railway line icon popups
+
+        map.on('click', (event) => {
+        const features = map.queryRenderedFeatures(event.point, {
+        layers: ['railway-info']
+        });
+        if (!features.length) {
+        return;
+        }
+        const feature = features[0];
+
+        const popup = new mapboxgl.Popup({ offset: [0, -15] })
+        .setLngLat(feature.geometry.coordinates)
+        .setHTML(
+        `<h2>${feature.properties.name}</h2><p>Operator: ${feature.properties.company}</p><p>${feature.properties.description}`
+        )
+        .addTo(map);
+        });
+
+        // Railway line popups - too many features to edit
+
+        map.on('click', (event) => {
+        const features = map.queryRenderedFeatures(event.point, {
+        layers: ['vy']
+        });
+        if (!features.length) {
+        return;
+        }
+        const feature = features[0];
+
+        const popup = new mapboxgl.Popup({ offset: [0, -15] })
+        .setLngLat(event.lngLat)
+        .setHTML(
+        `<h3>${feature.properties.name}</h3><p>Click railway icon for more information</p>`
+        )
+        .addTo(map);
+        });
+
+        map.on('click', (event) => {
+        const features = map.queryRenderedFeatures(event.point, {
+        layers: ['sj']
+        });
+        if (!features.length) {
+        return;
+        }
+        const feature = features[0];
+
+        const popup = new mapboxgl.Popup({ offset: [0, -15] })
+        .setLngLat(event.lngLat)
+        .setHTML(
+        `<h3>${feature.properties.name}</h3><p>Click railway icon for more information</p>`
+        )
+        .addTo(map);
+        });
+
+        map.on('click', (event) => {
+        const features = map.queryRenderedFeatures(event.point, {
+        layers: ['kongsvingerbanen']
+        });
+        if (!features.length) {
+        return;
+        }
+        const feature = features[0];
+
+        const popup = new mapboxgl.Popup({ offset: [0, -15] })
+        .setLngLat(event.lngLat)
+        .setHTML(
+        `<h3>${feature.properties.name}</h3><p>Click railway icon for more information</p>`
+        )
+        .addTo(map);
+        });
+
+        map.on('click', (event) => {
+        const features = map.queryRenderedFeatures(event.point, {
+        layers: ['goahead']
+        });
+        if (!features.length) {
+        return;
+        }
+        const feature = features[0];
+
+        const popup = new mapboxgl.Popup({ offset: [0, -15] })
+        .setLngLat(event.lngLat)
+        .setHTML(
+        `<h3>${feature.properties.name}</h3><p>Click railway icon for more information</p>`
+        )
+        .addTo(map);
+        });
+
+        map.on('click', (event) => {
+        const features = map.queryRenderedFeatures(event.point, {
+        layers: ['gardermobanen']
+        });
+        if (!features.length) {
+        return;
+        }
+        const feature = features[0];
+
+        const popup = new mapboxgl.Popup({ offset: [0, -15] })
+        .setLngLat(event.lngLat)
+        .setHTML(
+        `<h3>${feature.properties.name}</h3><p>Click railway icon for more information</p>`
+        )
+        .addTo(map);
+        });
+
+
+
+
+    </script>
+  </body>
+</html>
