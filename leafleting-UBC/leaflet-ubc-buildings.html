@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Leaflet Exercise</title>
+    <meta charset="utf-8" />
+
+    <!-- Leaflet styles and code. Place in the <head></head> element. -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+
+    <!-- jQuery is a library that simplifies many things in JavaScript.
+	     We'll use it to retrieve data from the web. -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+  </head>
+  <body>
+    <div id="mapid" style="width: 800px; height: 450px;"></div>
+    <!-- Our web map will get placed into this div element -->
+    <div id="legend" style="width: 30px; height: 30px;"></div>
+
+    <script>
+
+        var map = L.map('mapid',
+                        {
+          								center: [49.266637, -123.248113],
+          								zoom: 15
+        								}
+                  );
+
+      var topoTiles = L.tileLayer(
+          								'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+                          {
+      										maxZoom: 17,
+                          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+                        }
+      								).addTo(map);
+
+
+      $.getJSON("https://raw.githubusercontent.com/UBCGeodata/ubc-geospatial-opendata/master/ubcv/locations/geojson/ubcv_buildings.geojson",
+        function(data) {
+          L.geoJson(data, {
+            style: style,
+            onEachFeature: function (feature, layer) {
+              layer.bindPopup('<h3>'+feature.properties.NAME+'</h3><p>Building Height: '+feature.properties.BLDG_HEIGHT+' meters</p>');
+            }
+          }).addTo(map);        }
+      );
+
+      // colors extracted and adapted from https://commons.wikimedia.org/wiki/File:20_Hypsometric_Tints_2000m.svg#/media/File:20_Hypsometric_Tints_2000m.svg
+      function getColor(h) {
+          return h > 55.61 ? '#FDFDFD' :
+                 h > 50  ? '#625A73' :
+                 h > 41  ? '#958DA6' :
+                 h > 30  ? '#B87223' :
+                 h > 25   ? '#C0725B' :
+                 h > 20   ? '#B87223' :
+                 h > 15   ? '#EBA556' :
+                 h > 10   ? '#C0B441' :
+                 h > 5   ? '#F3E774'  :
+                 h > 1    ? "#7BA51D" :
+                            '#ffffff';
+      };
+
+
+      function style(feature) {
+        return {
+          fillColor: getColor(feature.properties.BLDG_HEIGHT),
+          weight: 0.2,
+          color: 'black',
+          opacity: 100
+        };
+      }
+
+    </script>
+  </body>
+</html>
