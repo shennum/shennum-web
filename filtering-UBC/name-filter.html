@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Filter Leaflet Exercise</title>
+    <meta charset="utf-8" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+  </head>
+  <body>
+    <h1 Search for UBC Buildings </h1>
+    <div id="mapid" style="width: 800px; height: 450px;"></div>
+
+    <div id="controls" style="margin: 15px;">
+      <button id="showAllBuildingsButton">Show All Buildings</button>
+
+      <span style="display:inline-block; width: 30px"></span>
+      <input type="text" id="highlightNamesTextEntry" placeholder="enter building name" />
+      <button id="highlightNamesButton">Find building</button>
+    </div>
+
+    <script>
+
+
+        var map = L.map('mapid',
+                        {
+                          center: [49.266637, -123.248113],
+                          zoom: 15
+                        }
+                  );
+
+      var topoTiles = L.tileLayer(
+                          'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+                          {
+                          maxZoom: 17,
+                          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+                        }
+                      ).addTo(map);
+
+
+        function buildingsToFilter (feature, layer) {
+          if(nameToHighlight === "") {
+            return true;
+          }
+          else if (feature.properties && feature.properties.NAME) {
+            return feature.properties.NAME.toLowerCase().includes(nameToHighlight.toLowerCase());
+          } else {
+            return false;
+          }
+        }
+
+
+      	var lastLayerAdded = {};
+
+
+        function addBuildings() {
+          if(map.hasLayer(lastLayerAdded)){
+            map.removeLayer(lastLayerAdded);
+          }
+          lastLayerAdded = L.geoJSON(buildingGeoJSONdata, {
+            filter: buildingsToFilter,
+            style: style,
+            onEachFeature: function (feature, layer) {
+              layer.bindPopup('<h3>'+feature.properties.NAME+'</h3><p>Building Height: '+feature.properties.BLDG_HEIGHT+' meters</p>');
+              layer.on('click', function(e){
+                map.setView(e.latlng, 19)
+              });
+            }
+          }
+        );
+        lastLayerAdded.addTo(map);
+        };
+
+        function getColor(h) {
+            return h > 55.61 ? '#FDFDFD' :
+                   h > 50  ? '#625A73' :
+                   h > 41  ? '#958DA6' :
+                   h > 30  ? '#B87223' :
+                   h > 25   ? '#C0725B' :
+                   h > 20   ? '#B87223' :
+                   h > 15   ? '#EBA556' :
+                   h > 10   ? '#C0B441' :
+                   h > 5   ? '#F3E774'  :
+                   h > 1    ? "#7BA51D" :
+                              '#ffffff';
+        };
+
+
+        function style(feature) {
+          return {
+            fillColor: getColor(feature.properties.BLDG_HEIGHT),
+            weight: 0.2,
+            color: 'black',
+            opacity: 100
+          };
+        }
+
+        var nameToHighlight = "";
+
+        function highlightBuildings() {
+          nameToHighlight = document
+            .getElementById("highlightNamesTextEntry")
+            .value;
+          addBuildings();
+          nameToHighlight = "";
+        }
+
+
+      var buildingGeoJSONdata;
+
+        $.getJSON("https://raw.githubusercontent.com/UBCGeodata/ubc-geospatial-opendata/master/ubcv/locations/geojson/ubcv_buildings.geojson",
+                  function(data){
+      	      		buildingGeoJSONdata = data;
+      						document
+                      .getElementById("showAllBuildingsButton")
+                      .addEventListener("click", addBuildings);
+          					document
+                      .getElementById("highlightNamesButton")
+                      .addEventListener("click", highlightBuildings);
+
+        					}
+        );
+    </script>
+  </body>
+</html>
