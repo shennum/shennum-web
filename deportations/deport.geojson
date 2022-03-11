@@ -1,0 +1,2190 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Vietnam",
+        "asylum": 1,
+        "sum": 8
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            106.3009352, 16.64218286
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Venezuela",
+        "asylum": 2,
+        "sum": 2
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            -66.16884026, 7.127731537
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Uzbekistan",
+        "asylum": 4,
+        "sum": 4
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            63.13990888, 41.75603587
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Uruguay",
+        "sum": 1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            -56.01713024, -32.79825115
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "United States of America",
+        "sum": 103
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            -112.4961635, 45.68811937
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Tanzania",
+        "sum": 1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            34.81358642, -6.275097481
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "United Kingdom",
+        "asylum": 2,
+        "sum": 300
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            -2.886951519, 54.14704819
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "United Arab Emirates",
+        "sum": 4
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            54.30079558, 23.9057832
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Ukraine",
+        "asylum": 8,
+        "sum": 115
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            31.25530615, 49.1600783
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Uganda",
+        "sum": 1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            32.36703985, 1.275691192
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Turkey",
+        "asylum": 3,
+        "sum": 85
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            35.1672394, 39.06108059
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Thailand",
+        "sum": 4
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            101.0033333, 15.11440003
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Switzerland",
+        "sum": 66
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            8.215353658, 46.79895687
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Sweden",
+        "sum": 10867
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            16.75446643, 62.77709986
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Sudan",
+        "asylum": 1,
+        "sum": 1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            29.93540157, 15.98024231
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Sri Lanka",
+        "sum": 2
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            80.70316278, 7.615914949
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Spain",
+        "sum": 228
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            -3.652637017, 40.2272337
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "South Africa",
+        "sum": 1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            25.08736444, -29.00103218
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Somalia",
+        "asylum": 6,
+        "sum": 15
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            45.70614438, 4.748836792
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Slovenia",
+        "sum": 3
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            14.80810366, 46.1161188
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Slovakia",
+        "sum": 8
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            19.48038297, 48.7049353
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Saudi Arabia",
+        "sum": 1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            44.53686367, 24.12232706
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Russia",
+        "asylum": 13,
+        "sum": 63
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            24.97294186, 45.8534641
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Romania",
+        "sum": 603
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            24.97294186, 45.8534641
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Serbia",
+        "asylum": 2,
+        "sum": 106
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            20.78925244, 44.22214762
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Qatar",
+        "sum": 8
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            51.18683129, 25.31307459
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Portugal",
+        "sum": 59
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            -8.590837589, 39.58714686
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Poland",
+        "asylum": 1,
+        "sum": 1363
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            19.39432214, 52.12477182
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Philippines",
+        "sum": 13
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            122.8746824, 11.76274981
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Peru",
+        "asylum": 3,
+        "sum": 5
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            -74.37806457, -9.154388481
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Palestine",
+        "asylum": 1,
+        "sum": 1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            35.053889, 31.5675
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Pakistan",
+        "sum": 9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            69.34134311, 29.94849683
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "North Macedonia",
+        "sum": 26
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            21.68383041, 41.59500493
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Faroe Islands",
+        "sum": 10
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            -7.0038, 62.1520
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Nigeria",
+        "asylum": 1,
+        "sum": 9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            8.091239276, 9.595314826
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Netherlands",
+        "sum": 453
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            5.216814208, 52.06979165
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Nepal",
+        "sum": 2
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            83.91625325, 28.24792223
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Morocco",
+        "asylum": 1,
+        "sum": 3
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            -8.39643505, 29.84169214
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Montenegro",
+        "asylum": 1,
+        "sum": 3
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            19.23850001, 42.78581818
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Mongolia",
+        "asylum": 2,
+        "sum": 4
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            103.0562867, 46.82580607
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Moldova",
+        "asylum": 1,
+        "sum": 9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            28.46139712, 47.19510139
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Mexico",
+        "asylum": 1,
+        "sum": 5
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            -102.5303079, 23.9491712
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Mauritania",
+        "sum": 1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            -10.34339792, 20.2562182
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Malta",
+        "sum": 5
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            14.40375403, 35.92102699
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Malaysia",
+        "asylum": 1,
+        "sum": 1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            102.0410, 4.6969
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Luxembourg",
+        "sum": 2
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            6.071763967, 49.76682428
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Lithuania",
+        "sum": 660
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            23.88824902, 55.32702364
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Lebanon",
+        "sum": 1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            35.87983042, 33.92009304
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Latvia",
+        "sum": 351
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            24.90862243, 56.85181948
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Kosovo",
+        "asylum": 4,
+        "sum": 17
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            20.87374319, 42.57288339
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Kenya",
+        "asylum": 1,
+        "sum": 3
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            37.82243991, 0.550766077
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Jordan",
+        "asylum": 2,
+        "sum": 5
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            36.77092319, 31.24557612
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Japan",
+        "asylum": 1,
+        "sum": 1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            139.6692, 36.8796
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Ivory Coast",
+        "sum": 1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            -5.569000186, 7.627966516
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Italy",
+        "sum": 176
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            12.07190709, 42.786434
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Israel",
+        "sum": 5
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            34.7812, 32.0802
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Ireland",
+        "sum": 10
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            -8.145044672, 53.17822137
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Iraq",
+        "asylum": 2,
+        "sum": 5
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            43.74497702, 33.03980378
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Iran",
+        "asylum": 1,
+        "sum": 5
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            54.2769465, 32.57067824
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Indonesia",
+        "sum": 1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            117.2704333, -2.222961002
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "India",
+        "sum": 7
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            79.60712169, 22.88798588
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Iceland",
+        "sum": 25
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            -18.59644593, 64.99831582
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Hungary",
+        "sum": 27
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            19.39675927, 47.16324369
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Greece",
+        "sum": 63
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            22.97481893, 39.05118118
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Ghana",
+        "sum": 1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            -1.216523831, 7.953954724
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Germany",
+        "sum": 589
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            10.38149383, 51.1063635
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Georgia",
+        "asylum": 1,
+        "sum": 15
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            43.50752633, 42.16880078
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Gambia",
+        "asylum": 1,
+        "sum": 1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            -15.39758203, 13.44972956
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "France",
+        "sum": 209
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            -2.755221189, 42.18010698
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Finland",
+        "sum": 143
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            26.27079498, 64.49535879
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Ethiopia",
+        "asylum": 4,
+        "sum": 10
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            39.60055103, 8.622951736
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Estonia",
+        "asylum": 1,
+        "sum": 95
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            25.53579321, 58.67101415
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Egypt",
+        "sum": 2
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            29.8611108, 26.49299308
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Djibouti",
+        "sum": 2
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            42.56645365, 11.75015588
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Denmark",
+        "sum": 1278
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            10.0513897, 55.96537746
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Czechia",
+        "sum": 36
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            15.3141031, 49.73244821
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Cyprus",
+        "sum": 4
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            32.9899917, 34.91521704
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Cuba",
+        "sum": 1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            -79.2004, 22.0653
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Croatia",
+        "sum": 125
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            16.39572515, 45.06750468
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Colombia",
+        "asylum": 6,
+        "sum": 21
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            -73.0838421, 3.909413049
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "China",
+        "sum": 5
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            103.8325925, 36.55927331
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Chile",
+        "asylum": 2,
+        "sum": 8
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            -69.9609, -26.4312
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Canada",
+        "asylum": 1,
+        "sum": 12
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+          -105.6006, 54.6738
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Cabo Verde",
+        "sum": 1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            -23.97565581, 15.94515193
+
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Bulgaria",
+        "sum": 79
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            25.21751251,
+            42.76852261
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Brazil",
+        "asylum": 1,
+        "sum": 14
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            -53.09248235,
+            -10.78085885
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Bosnia and Herzegovina",
+        "sum": 12
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            17.77340802,
+            44.17173406
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Belgium",
+        "sum": 29
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            4.639960508,
+            50.63746164
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Belarus",
+        "sum": 5
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            28.03356639,
+            53.53188048
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Bangladesh",
+        "asylum": 1,
+        "sum": 2
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            90.24199994,
+            23.84567745
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Bahrain",
+        "sum": 1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            50.56349615,
+            26.0355192
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Austria",
+        "sum": 64
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            14.13067287,
+            47.58565692
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Australia",
+        "sum": 2
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            134.4911188,
+            -25.73231054
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Argentina",
+        "sum": 2
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            -65.17307737,
+            -35.37867944
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Afghanistan",
+        "asylum": 1,
+        "sum": 8
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            66.00844732,
+            33.8362668
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Albania",
+        "asylum": 11,
+        "sum": 67
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            20.05381916,
+            41.14248235
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "name": "Algeria",
+        "sum": 1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.8,
+            61.465
+          ],
+          [
+            2.653091377,
+            28.14888966
+          ]
+        ]
+      }
+    }
+  ]
+}
