@@ -75,37 +75,7 @@
       								).addTo(map);
 
 
-      // this is a geojson file I created from publicly available police records
-      var geoJSONDestinations;
-          $.getJSON("https://raw.githubusercontent.com/shennum/shennum-web/gh-pages/deportations/deportations_new.geojson",
-          function(data) {
-            L.geoJson(data, {
-              pointToLayer: destinationStyle,
-              onEachFeature: function (feature, layer) {
-                layer.bindTooltip('<h3>'+feature.properties.TO_COUNTRY+'</h3><p>Total number of people deported: '+feature.properties.NUM_SUM+' </p><p>Number of asylum seekers deported: '+feature.properties.NUM_ASYL+'');
-              }
-            }).addTo(map);}
-
-          );
-
-          // set the style for the destination markers
-          function destinationStyle(feature, latlng) {
-            return L.circleMarker(
-              latlng,
-              destinationMarkerOptions
-            );
-          }
-
-          var destinationMarkerOptions = {
-            radius: 1,
-            color: "#000000",
-            weigth: 1,
-            opacity: 0.5,
-            fillOpacity: 0.2
-          };
-
-
-          // these are official travel advisories from the Norwegian government that was translated to English by the author
+      // these are official travel advisories from the Norwegian government that was translated to English by the author
       var geoJSONAdvisories;
       $.getJSON("https://raw.githubusercontent.com/shennum/shennum-web/gh-pages/deportations/travel_advisories.geojson",
           function(data) {
@@ -253,6 +223,36 @@
     L.geoJSON(nearestAsylum).addTo(map)
     .bindPopup('You can only apply for asylum at the Norwegian border, at a police station within Norway, or at this location, the National Arrival Center.');
   });
+
+
+  // this is a geojson file I created from publicly available police records
+  var geoJSONDestinations;
+      $.getJSON("https://raw.githubusercontent.com/shennum/shennum-web/gh-pages/deportations/deportations_new.geojson",
+      function(data) {
+        L.geoJson(data, {
+          pointToLayer: destinationStyle,
+          onEachFeature: function (feature, layer) {
+            layer.bindTooltip('<h3>'+feature.properties.TO_COUNTRY+'</h3><p>Total number of people deported: '+feature.properties.NUM_SUM+' </p><p>Number of asylum seekers deported: '+feature.properties.NUM_ASYL+'');
+          }
+        }).addTo(map);}
+
+      );
+
+      // set the style for the destination markers
+      function destinationStyle(feature, latlng) {
+        return L.circleMarker(
+          latlng,
+          destinationMarkerOptions
+        );
+      }
+
+      var destinationMarkerOptions = {
+        radius: 1,
+        color: "#000000",
+        weigth: 1,
+        opacity: 0.5,
+        fillOpacity: 0.2
+      };
 
 
 
