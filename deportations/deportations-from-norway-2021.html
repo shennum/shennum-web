@@ -21,11 +21,11 @@
       <h2>Norwegian Immigration & Foreign Policy Contradictions</h2>
       <p>The Norwegian government's official travel advisories and deportations.</p>
       <span style="display:block; width: 10px; length: 15px"></span>
-      <p>Start by choosing a deportation destination below (and click a line or country for more information):</p>
+      <p>Start by choosing a deportation destination below or to display all lines. You can also click on countries with travel advisories.:</p>
       <select id="selectNation" autofocus>
           <option>Choose deportation destination</option>
       </select>
-      <p>Where can one apply for protection? Double click anywhere on the map to show the closest location where a person can apply for asylum in Norway</p>
+      <p>Where can one apply for protection? Double click anywhere on the map to show the closest location to where you clicked that a person can apply for asylum in Norway</p>
     </div>
 
 
@@ -104,36 +104,37 @@
             fillOpacity: 0.2
           };
 
-      // these are official travel advisories from the Norwegian government that was translated to English by the author
+
+          // these are official travel advisories from the Norwegian government that was translated to English by the author
       var geoJSONAdvisories;
       $.getJSON("https://raw.githubusercontent.com/shennum/shennum-web/gh-pages/deportations/travel_advisories.geojson",
-      function(data) {
-        L.geoJson(data, {
-          style: countryStyle,
-          onEachFeature: function (feature, layer) {
-            layer.bindPopup('<h3>'+feature.properties.NAME+'</h3><p>Official travel advisory: '+feature.properties.DESCRIPTION+' </p>');
-          }
-        }).addTo(map);        }
-      );
+          function(data) {
+            L.geoJson(data, {
+              style: countryStyle,
+              onEachFeature: function (feature, layer) {
+                layer.bindPopup('<h3>'+feature.properties.NAME+'</h3><p>Official travel advisory: '+feature.properties.DESCRIPTION+' </p>');
+              }
+            }).addTo(map);        }
+          );
 
-      // style the polygons so that we can distinguish between countries with travel advisories to the entire vs parts of the country
-      function countryStyle(feature) {
-        if(feature.properties.ALL_PARTS === "All") {
-          return {
-            fillColor: 'red',
-            weight: 0.2,
-            color: 'black',
-            opacity: 0.1
-        }
-       } else {
-          return {
-            fillColor: 'orange',
-            weight: 0.2,
-            color: 'black',
-            opacity: 0.1
-                    }
-        }
-        };
+          // style the polygons so that we can distinguish between countries with travel advisories to the entire vs parts of the country
+          function countryStyle(feature) {
+            if(feature.properties.ALL_PARTS === "All") {
+              return {
+                fillColor: 'red',
+                weight: 0.2,
+                color: 'black',
+                opacity: 0.1
+            }
+           } else {
+              return {
+                fillColor: 'orange',
+                weight: 0.2,
+                color: 'black',
+                opacity: 0.1
+                        }
+            }
+            };
 
       // I added DISPLAY ALL to the array with country names in order to allow for the user to display all lines simultaneously
       // I did not want to display them all by default as there was no efficient way to design these
@@ -233,6 +234,8 @@
 
   // this allows the user to double click anywhere on the map to display
   // where the closest place to apply for asylum to Norway is (i.e., only within Norway)
+  // there are some other police stations within Norway where one can apply for asylum
+  // but these are not included for reasons outlined in the README fiile
 
   map.on('dblclick', function(e){
     var coord = e.latlng;
@@ -248,7 +251,7 @@
 
     var nearestAsylum = turf.nearestPoint(targetPoint, asylumCenters);
     L.geoJSON(nearestAsylum).addTo(map)
-    .bindPopup('This is the closest location to where you double-clicked that a person can apply for asylum to Norway. A person can also apply at the border or police station within Norway.');
+    .bindPopup('You can only apply for asylum at the Norwegian border, at a police station within Norway, or at this location, the National Arrival Center.');
   });
 
 
