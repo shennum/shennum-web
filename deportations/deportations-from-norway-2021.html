@@ -158,7 +158,11 @@
           filter: namesToFilter,
           style: getStyle,
           onEachFeature: function (feature, layer) {
-            layer.bindPopup('<h3>'+feature.properties.name+'</h3><p>Number of people deported: '+feature.properties.sum+' </p><p>Number of asylum seekers deported: '+feature.properties.asylum+'');
+            if(nameToHighlight === 'DISPLAY ALL') {
+            layer.bindTooltip('<h3>'+feature.properties.name+'</h3><p>Number of people deported: '+feature.properties.sum+' </p><p>Number of asylum seekers deported: '+feature.properties.asylum+'', {permanent: false});
+          } else {
+            layer.bindTooltip('<h3>'+feature.properties.name+'</h3><p>Number of people deported: '+feature.properties.sum+' </p><p>Number of asylum seekers deported: '+feature.properties.asylum+'', {permanent: true});
+          }
           }
         }
       );
