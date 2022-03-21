@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Leaflet Exercise</title>
+    <meta charset="utf-8" />
+
+    <!-- Leaflet styles and code. Place in the <head></head> element. -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://npmcdn.com/@turf/turf/turf.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+
+  </head>
+  <body>
+
+    <div class="header">
+      <h2>Deportations from Norway in 2021</h2>
+      <p>With an overview of official travel advisories issued by the Norwegian government.</p>
+      <span style="display:block; width: 10px; length: 15px"></span>
+      <p>Start by choosing a destination below (and click a line or country for more information):</p>
+      <select id="selectNation" autofocus>
+          <option>Choose deportation destination</option>
+      </select>
+      <p> Double click anywhere on the map to show the closest location where a person can apply for asylum in Norway</p>
+    </div>
+
+
+    <div id="mapid" style="width: 800px; height: 450px;"></div>
+    <!-- Our web map will get placed into this div element -->
+
+    <canvas id="myCanvas" width="200" height="100"></canvas>
+
+
+
+    <script>
+
+      // Not the most efficient way to retrieve the list of nations I wanted to include in the dropdown menu,
+      // but this list was created by using the console.log(listOfNations) further down, and the creating list manually
+      var select = document.getElementById("selectNation");
+      var choiceOfCountries = ["DISPLAY ALL", "Afghanistan", "Albania", "Algeria", "Argentina", "Australia", "Austria", "Bahrain", "Bangladesh", "Belarus", "Belgium", "Bosnia and Herzegovina", "Brazil", "Bulgaria", "Cabo Verde", "Canada", "Chile", "China", "Colombia", "Croatia",
+      "Cuba", "Cyprus", "Czechia", "Denmark", "Djibouti", "Egypt", "Estonia", "Ethiopia", "Faroe Islands", "Finland", "France", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Hungary", "Iceland", "India", "Indonesia",
+      "Iran", "Iraq", "Ireland", "Israel", "Italy", "Ivory Coast", "Japan", "Jordan", "Kenya", "Kosovo", "Latvia", "Lebanon", "Lithuania", "Luxembourg", "Malaysia", "Malta", "Mauritania", "Mexico", "Moldova", "Mongolia",
+      "Montenegro", "Morocco", "Nepal", "Netherlands", "Nigeria", "North Macedonia", "Pakistan", "Palestine", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Saudi Arabia", "Serbia", "Slovakia", "Slovenia", "Somalia",
+      "South Africa", "Spain", "Sri Lanka", "Sudan", "Sweden", "Switzerland", "Tanzania", "Thailand", "Turkey", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States of America", "Uruguay", "Uzbekistan", "Venezuela", "Vietnam"];
+
+      for(var i = 0; i < choiceOfCountries.length; i++) {
+          var cof = choiceOfCountries[i];
+          var el = document.createElement("option");
+          el.textContent = cof;
+          el.value = cof;
+          select.appendChild(el);
+      }
+
+
+      // by setting doubleClickZoom to false, the user can istead couble-click anywhere on the map to allow for turfjs interaction
+      var map = L.map('mapid',
+                      {
+          							center: [10.38, 51.10],
+          							zoom: 1,
+                        doubleClickZoom: false
+        							}
+                );
+
+
+      var topoTiles = L.tileLayer(
+          								'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+                          {
+      										maxZoom: 17,
+                          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+                        }
+      								).addTo(map);
+
+
+      // this is a geojson file I created from publicly available police records
+      var geoJSONDestinations;
+          $.getJSON("https://raw.githubusercontent.com/shennum/shennum-web/gh-pages/deportations/deportations_new.geojson",
+          function(data) {
+            L.geoJson(data, {
+              pointToLayer: destinationStyle,
+              onEachFeature: function (feature, layer) {
+                layer.bindTooltip('<h3>'+feature.properties.TO_COUNTRY+'</h3><p>Total number of people deported: '+feature.properties.NUM_SUM+' </p><p>Number of asylum seekers deported: '+feature.properties.NUM_ASYL+'');
+              }
+            }).addTo(map);}
+
+          );
+
+          // set the style for the destination markers
+          function destinationStyle(feature, latlng) {
+            return L.circleMarker(
+              latlng,
+              destinationMarkerOptions
+            );
+          }
+
+          var destinationMarkerOptions = {
+            radius: 1,
+            color: "#000000",
+            weigth: 1,
+            opacity: 0.5,
+            fillOpacity: 0.2
+          };
+
+      // these are official travel advisories from the Norwegian government that was translated to English by the author
+      var geoJSONAdvisories;
+      $.getJSON("https://raw.githubusercontent.com/shennum/shennum-web/gh-pages/deportations/travel_advisories.geojson",
+      function(data) {
+        L.geoJson(data, {
+          style: countryStyle,
+          onEachFeature: function (feature, layer) {
+            layer.bindPopup('<h3>'+feature.properties.NAME+'</h3><p>Official travel advisory: '+feature.properties.DESCRIPTION+' </p>');
+          }
+        }).addTo(map);        }
+      );
+
+      // style the polygons so that we can distinguish between countries with travel advisories to the entire vs parts of the country
+      function countryStyle(feature) {
+        if(feature.properties.ALL_PARTS === "All") {
+          return {
+            fillColor: 'red',
+            weight: 0.2,
+            color: 'black',
+            opacity: 0.1
+        }
+       } else {
+          return {
+            fillColor: 'orange',
+            weight: 0.2,
+            color: 'black',
+            opacity: 0.1
+                    }
+        }
+        };
+
+      // I added DISPLAY ALL to the array with country names in order to allow for the user to display all lines simultaneously
+      // I did not want to display them all by default as there was no efficient way to design these
+      function namesToFilter (feature, layer) {
+        if(nameToHighlight === "DISPLAY ALL") {
+          return true;
+        }
+        else if (feature.properties && feature.properties.name) {
+          return feature.properties.name.toLowerCase().includes(nameToHighlight.toLowerCase());
+        } else {
+          return false;
+        }
+      }
+
+      // make sure that when the user select different nations from the dropdown menu, the other lines are not added
+      var lastLayerAdded = {};
+      function addLines() {
+        if(map.hasLayer(lastLayerAdded)){
+          map.removeLayer(lastLayerAdded);
+        }
+        lastLayerAdded = L.geoJSON(geoJSONDeportLines, {
+          filter: namesToFilter,
+          style: getStyle,
+          onEachFeature: function (feature, layer) {
+            layer.bindPopup('<h3>'+feature.properties.name+'</h3><p>Number of people deported: '+feature.properties.sum+' </p><p>Number of asylum seekers deported: '+feature.properties.asylum+'');
+          }
+        }
+      );
+      lastLayerAdded.addTo(map);
+      };
+
+    // get the name of the country from the dropdown menu
+    var nameToHighlight = "";
+
+      function highlightCountries() {
+        nameToHighlight = document
+          .getElementById("selectNation")
+          .value;
+        addLines();
+        nameToHighlight = "";
+      }
+
+  // add the deportation lines
+  var geoJSONDeportLines;
+  $.getJSON("https://raw.githubusercontent.com/shennum/shennum-web/gh-pages/deportations/deport.geojson",
+    function(data) {
+      geoJSONDeportLines = data;
+      document
+        .getElementById("selectNation")
+        .addEventListener("change", highlightCountries);
+    // obtain the list of nations that are deportation destinations -- for use later
+        listOfNations = data.features.map(function (nation) {
+          return nation.properties.name;
+        });
+        //console.log(listOfNations);
+      });
+
+
+
+  // red for asylum seekers and blue for no asylum seekers
+  function getColor(h) {
+      return h >= 1 ? '#D2292D' :
+             h <= 0  ? '#377eb8' :
+                        '#ffffff';
+  };
+
+  // style the lines so that their weight depends on the TOTAL number of people deported
+  function getWeight(w) {
+      return w >= 1000 ? 4.5 :
+             w >= 500  ? 4 :
+             w >= 100  ? 3.5 :
+             w >= 50  ? 3 :
+             w >= 20   ? 2.5 :
+             w >= 10   ? 2 :
+             w >= 5   ? 1 :
+             w >= 3   ? 1 :
+             w >= 2   ? 1  :
+             w >= 1    ? 1 :
+                        1;
+  };
+
+  // define the style of the deportation lines:
+  // the weight (thickness) of the lines is defined by the total number of people that got deported,
+  // and the color of the lines is determined by whether asylum seekers got deported (red) or not (blue)
+  function getStyle(feature) {
+    return {
+      color: getColor(feature.properties.asylum),
+      weight: getWeight(feature.properties.sum),
+      opacity: 1
+    };
+  }
+
+
+  // this allows the user to double click anywhere on the map to display
+  // where the closest place to apply for asylum to Norway is (i.e., only within Norway)
+
+  map.on('dblclick', function(e){
+    var coord = e.latlng;
+    var lat = coord.lat;
+    var lng = coord.lng;
+    var userPoint = turf.point([lng, lat]);
+    //L.geoJSON(userPoint).addTo(map); ---- DO NOT display this marker - does not add any value to the map
+
+    var targetPoint = userPoint;
+    var asylumCenters = turf.featureCollection([
+      turf.point([10.840222835540771, 59.35764676449927])
+      ]);
+
+    var nearestAsylum = turf.nearestPoint(targetPoint, asylumCenters);
+    L.geoJSON(nearestAsylum).addTo(map)
+    .bindPopup('This is the closest location to where you double-clicked that a person can apply for asylum to Norway. A person can also apply at the border or police station within Norway.');
+  });
+
+
+
+    </script>
+  </body>
+</html>
