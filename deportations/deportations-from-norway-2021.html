@@ -19,9 +19,10 @@
 
     <div class="header">
       <h2>Norwegian Immigration & Foreign Policy Contradictions</h2>
-      <p>The Norwegian government's official travel advisories and deportations.</p>
+      <p>The Norwegian government's official travel advisories and deportations in 2021.</p>
       <span style="display:block; width: 10px; length: 15px"></span>
       <p>Start by choosing a deportation destination below or to display all lines. You can also click on countries with travel advisories.:</p>
+      <!-- Autofocus allows me to grab the user's attention -->
       <select id="selectNation" autofocus>
           <option>Choose deportation destination</option>
       </select>
@@ -30,9 +31,8 @@
 
 
     <div id="mapid" style="width: 800px; height: 450px;"></div>
-    <!-- Our web map will get placed into this div element -->
 
-    <img src="legend.JPG" alt="Map Legend">
+    <img src="legend.JPG" alt="Map Legend" width="295.5" height="180.5">
 
 
 
@@ -185,10 +185,10 @@
 
 
 
-  // red for asylum seekers and blue for no asylum seekers
+  // red for asylum seekers and blue for no asylum seekers (split complementary from color.adobe.com)
   function getColor(h) {
-      return h >= 1 ? '#D2292D' :
-             h <= 0  ? '#377eb8' :
+      return h >= 1 ? '#F23034' :
+             h <= 0  ? '#05ACB5' :
                         '#ffffff';
   };
 
@@ -222,7 +222,7 @@
   // this allows the user to double click anywhere on the map to display
   // where the closest place to apply for asylum to Norway is (i.e., only within Norway)
   // there are some other police stations within Norway where one can apply for asylum
-  // but these are not included for reasons outlined in the README fiile
+  // but these are not included for reasons outlined in the README file
 
   map.on('dblclick', function(e){
     var coord = e.latlng;
@@ -238,7 +238,7 @@
 
     var nearestAsylum = turf.nearestPoint(targetPoint, asylumCenters);
     L.geoJSON(nearestAsylum).addTo(map)
-    .bindPopup('You can only apply for asylum at the Norwegian border, at a police station within Norway, or at this location, the National Arrival Center.');
+    .bindPopup('This is the closest location to where you double-clicked that you can apply for asylum. You can only apply for asylum at the Norwegian border, at a police station within Norway, or at this location, the National Arrival Center.');
   });
 
 
@@ -265,7 +265,7 @@
 
       var destinationMarkerOptions = {
         radius: 1,
-        color: "#000000",
+        color: "#555555",
         weigth: 1,
         opacity: 0.5,
         fillOpacity: 0.2
