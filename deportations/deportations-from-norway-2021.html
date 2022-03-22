@@ -32,7 +32,7 @@
     <div id="mapid" style="width: 800px; height: 450px;"></div>
     <!-- Our web map will get placed into this div element -->
 
-    <canvas id="myCanvas" width="200" height="100"></canvas>
+    <img src="legend.JPG" alt="Map Legend">
 
 
 
@@ -59,8 +59,8 @@
       // by setting doubleClickZoom to false, the user can istead couble-click anywhere on the map to allow for turfjs interaction
       var map = L.map('mapid',
                       {
-          							center: [10.38, 51.10],
-          							zoom: 1,
+          							center: [33, 15],
+          							zoom: 2,
                         doubleClickZoom: false
         							}
                 );
@@ -76,18 +76,23 @@
 
 
       // these are official travel advisories from the Norwegian government that was translated to English by the author
+      // I also wanted to highlght Norway, and created a conditional popup for Norway
       var geoJSONAdvisories;
       $.getJSON("https://raw.githubusercontent.com/shennum/shennum-web/gh-pages/deportations/travel_advisories.geojson",
           function(data) {
             L.geoJson(data, {
               style: countryStyle,
               onEachFeature: function (feature, layer) {
+                if(feature.properties.NAME === "Norway") {
+                  layer.bindPopup('<h3>'+feature.properties.NAME+'</h3>');
+                } else {
                 layer.bindPopup('<h3>'+feature.properties.NAME+'</h3><p>Official travel advisory: '+feature.properties.DESCRIPTION+' </p>');
               }
+            }
             }).addTo(map);        }
           );
 
-          // style the polygons so that we can distinguish between countries with travel advisories to the entire vs parts of the country
+          // style the polygons so that we can distinguish between countries with travel advisories to the entire vs parts of the country vs Norway
           function countryStyle(feature) {
             if(feature.properties.ALL_PARTS === "All") {
               return {
@@ -96,12 +101,19 @@
                 color: 'black',
                 opacity: 0.1
             }
-           } else {
+          } else if(feature.properties.ALL_PARTS === "Parts") {
               return {
                 fillColor: 'orange',
                 weight: 0.2,
                 color: 'black',
                 opacity: 0.1
+                        }
+            } else {
+              return {
+                fillColor: 'dark-grey',
+                weight: 0.2,
+                color: 'black',
+                opacity: 0.3
                         }
             }
             };
@@ -120,6 +132,10 @@
       }
 
       // make sure that when the user select different nations from the dropdown menu, the other lines are not added
+      // also ensure that when DISPLAY ALL is selected, no tooltip is added, as this would be very cluttered
+      // I was not able to remove the tooltips on click, so in order to make sure that they were not in the way of the line,
+      // I determined that reducing the opacity somewhat, setting the position to 'bottom', and increasing the y-axis offset,
+      // the popups were still visible yet not in the way of the lines.
       var lastLayerAdded = {};
       function addLines() {
         if(map.hasLayer(lastLayerAdded)){
@@ -130,15 +146,16 @@
           style: getStyle,
           onEachFeature: function (feature, layer) {
             if(nameToHighlight === 'DISPLAY ALL') {
-            layer.bindTooltip('<h3>'+feature.properties.name+'</h3><p>Number of people deported: '+feature.properties.sum+' </p><p>Number of asylum seekers deported: '+feature.properties.asylum+'', {permanent: false});
+            layer.bindPopup('<h3>'+feature.properties.name+'</h3><p>Number of people deported: '+feature.properties.sum+' </p><p>Number of asylum seekers deported: '+feature.properties.asylum+'', {permanent: false});
           } else {
-            layer.bindTooltip('<h3>'+feature.properties.name+'</h3><p>Number of people deported: '+feature.properties.sum+' </p><p>Number of asylum seekers deported: '+feature.properties.asylum+'', {permanent: true});
+            layer.bindTooltip('<h3>'+feature.properties.name+'</h3><p>Number of people deported: '+feature.properties.sum+' </p><p>Number of asylum seekers deported: '+feature.properties.asylum+'', {permanent: true, offset: [0, 40], opacity: 0.8, direction: 'bottom'});
           }
           }
         }
       );
       lastLayerAdded.addTo(map);
       };
+
 
     // get the name of the country from the dropdown menu
     var nameToHighlight = "";
@@ -225,7 +242,7 @@
   });
 
 
-  // this is a geojson file I created from publicly available police records
+  // this is a geojson file I created from publicly available police records that I use to symbolize countries that are destinations for deportations
   var geoJSONDestinations;
       $.getJSON("https://raw.githubusercontent.com/shennum/shennum-web/gh-pages/deportations/deportations_new.geojson",
       function(data) {
