@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Display a map with a custom style</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoiZW1pbHllYyIsImEiOiJja3p6M3pvNTcwNmxmM2V0OHR5OGFvdXF0In0.ghMWgYGBVgl2V29aH2HU-A';
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/emilyec/cl12sn04p001n15qoax9bnlob', // custom style url from https://studio.mapbox.com/
+        center: [-10, 19], // starting position
+        zoom: 2 // starting zoom
+    });
+</script>
+
+</body>
+</html>
