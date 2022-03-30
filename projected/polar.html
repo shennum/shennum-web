@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Norwegian Immigration & Foreign Policy Contradictions</title>
+    <meta charset="utf-8" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="proj4.js"></script>
+    <script src="proj4leaflet.js"></script>
+    <script src="https://npmcdn.com/@turf/turf/turf.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+
+  </head>
+  <body>
+
+    <div class="header">
+
+
+    <div id="mapid" style="width: 800px; height: 450px;"></div>
+
+    <img src="legend.JPG" alt="Map Legend">
+
+
+
+    <script>
+
+
+
+    // SWEREF99 TM (EPSG:3006) with map's pixel origin at SWEREF99 TM coordinate (0, 0)
+    var crs = new L.Proj.CRS('EPSG:3031',
+      "+proj=stere +lat_0=-90 +lat_ts=-71 +lon_0=0 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs",
+      {
+        resolutions: [
+          8192, 4096, 2048, 1024, 512, 256, 128
+        ],
+        origin: [0, 0]
+      })
+
+      var map = L.map('map', {
+          center: [57.74, 11.94],
+          zoom: 13,
+          crs: crs
+      });
+
+      L.tileLayer('http://api.geosition.com/tile/osm-bright-3006/{z}/{x}/{y}.png', {
+  maxZoom: crs.options.resolutions.length,
+  minZoom: 0,
+  continuousWorld: true,
+  attribution: 'Map data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>, Imagery © <a href="http://www.kartena.se/">Kartena</a>'
+}).addTo(map);
+
+
+    </script>
+  </body>
+</html>
