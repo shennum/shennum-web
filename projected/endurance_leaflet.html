@@ -118,16 +118,6 @@
       });
     })();
 
-      proj4.defs('EPSG:3031', "+proj=stere +lat_0=-90 +lat_ts=-71 +lon_0=0 +k=1 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs";)
-
-            $.getJSON("https://raw.githubusercontent.com/UBC-GEOS472-Spring2022/antarctic_expedition-/main/endurance_original_route_point.geojson?token=GHSAT0AAAAAABQSF75MEKZ75NJ3KD6DSLHKYSPCROQ",
-                    function(data){
-                      // Once UBC trees GeoJSON layer is loaded
-                      // Then add it to the map
-                      L.geoJson(data).addTo(map);
-                    }
-                  );
-
 
 
     </script>
