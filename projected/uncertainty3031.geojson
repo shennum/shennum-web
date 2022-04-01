@@ -1,0 +1,13 @@
+{
+"type": "FeatureCollection",
+"name": "uncertainty3031",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3031" } },
+"features": [
+{ "type": "Feature", "properties": { "stroke": "#555555", "stroke_wid": 2.0, "stroke_opa": 1.0, "Dates": "November 15 - November 16, 1915", "Shape_Leng": 0.01317626221 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -101.555588342905921, 12367264.067714307457209, 0.0 ], [ -101.579825887519362, 12367264.059688348323107, 0.0 ] ] ] } },
+{ "type": "Feature", "properties": { "stroke": "#555555", "stroke_wid": 2.0, "stroke_opa": 1.0, "Dates": "November 16 - November 17, 1915", "Shape_Leng": 0.01717904044 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -101.579825887519362, 12367264.059688348323107, 0.0 ], [ -101.587905473139088, 12367264.027589092031121, 0.0 ] ] ] } },
+{ "type": "Feature", "properties": { "stroke": "#555555", "stroke_wid": 2.0, "stroke_opa": 1.0, "Dates": "November 17 - November 18, 1915", "Shape_Leng": 0.00222299999 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -101.587905473139088, 12367264.027589092031121, 0.0 ], [ -101.587905437969269, 12367264.023307533934712, 0.0 ] ] ] } },
+{ "type": "Feature", "properties": { "stroke": "#555555", "stroke_wid": 2.0, "stroke_opa": 1.0, "Dates": "November 18 - November 22, 1915", "Shape_Leng": 0.07940151008 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -101.587905437969269, 12367264.023307533934712, 0.0 ], [ -101.741408913991364, 12367264.011536313220859, 0.0 ] ] ] } },
+{ "type": "Feature", "properties": { "stroke": "#555555", "stroke_wid": 2.0, "stroke_opa": 1.0, "Dates": "November 22 - November 23, 1915", "Shape_Leng": 0.06984657759 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -101.741408913991364, 12367264.011536313220859, 0.0 ], [ -101.781807281422545, 12367264.13993851467967, 0.0 ] ] ] } },
+{ "type": "Feature", "properties": { "stroke": "#555555", "stroke_wid": 2.0, "stroke_opa": 1.0, "Dates": "November 22 - November 24, 1915", "Shape_Leng": 0.10833300007 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -101.781807281422545, 12367264.13993851467967, 0.0 ], [ -101.781808998618985, 12367264.348590949550271, 0.0 ] ] ] } }
+]
+}
