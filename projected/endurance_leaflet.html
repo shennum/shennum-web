@@ -124,36 +124,15 @@
       });
     })();
 
-    fetch('https://raw.githubusercontent.com/shennum/shennum-web/gh-pages/projected/route3031.geojson').then((res) => res.json())
-      .then((json) => {
-        const { features } = json;
+    var geoJSONDestinations;
+        $.getJSON("https://raw.githubusercontent.com/shennum/shennum-web/gh-pages/projected/route3031.geojson",
+        function(data) {
+          L.geoJson(data).addTo(map);}
 
-        for (let i = 0; i < features.length; i++) {
-          const projected = proj4(projString, features[i].geometry.coordinates);
-          features[i].geometry.coordinates = projected;
-
-          features[i]['crs'] = {
-            "type": "name",
-            "properties": {
-              "name": projKey
-            }
-          }
-          features[i]['properties']['i'] = i;
-        }
-
-
-        function onEachFeature(feature, layer) {
-          layer.bindPopup(`number: ${feature.properties.i}`, {closeButton: false});
-          layer.on('mouseover', function() { layer.openPopup(); });
-          layer.on('mouseout', function() { layer.closePopup(); });
-        }
+        );
 
         L.Proj.geoJson(json, { onEachFeature: onEachFeature }).addTo(map);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-    };
+
 
 
 
