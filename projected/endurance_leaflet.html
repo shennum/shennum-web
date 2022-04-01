@@ -123,15 +123,14 @@
         }
       });
     })();
-
-    var geoJSONDestinations;
+        var routeLines;
         $.getJSON("https://raw.githubusercontent.com/shennum/shennum-web/gh-pages/projected/route3031.geojson",
         function(data) {
           L.geoJson(data).addTo(map);}
 
         );
 
-        L.Proj.geoJson(json, { onEachFeature: onEachFeature }).addTo(map);
+        L.Proj.geoJson(routeLines).addTo(map);
 
 
 
