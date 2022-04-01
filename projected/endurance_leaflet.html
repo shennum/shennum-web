@@ -8,7 +8,7 @@
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
     />
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
     <script src="proj4.js"></script>
     <script src="proj4leaflet.js"></script>
     <script src="https://npmcdn.com/@turf/turf/turf.min.js"></script>
@@ -50,10 +50,15 @@
 
 
     window.onload = function () {
+      const projKey = "hello";
+      const projString = '+proj=stere +lat_0=-90 +lat_ts=-71 +lon_0=0 +k=1 +x_0=0 +y_0=0 ' +
+        '+ellps=WGS84 +datum=WGS84 +units=m +no_defs';
+
+      proj4.defs(projKey, projString);
+
       var EPSG3031 = new L.Proj.CRS(
         'EPSG:3031',
-        '+proj=stere +lat_0=-90 +lat_ts=-71 +lon_0=0 +k=1 +x_0=0 +y_0=0 ' +
-        '+ellps=WGS84 +datum=WGS84 +units=m +no_defs', {
+        projString, {
         origin: [-4194304, 4194304],
         resolutions: [
           8192.0,
@@ -98,7 +103,8 @@
       });
 
       map.addLayer(layer);
-    };
+
+
     /*
     * Workaround for 1px lines appearing in some browsers due to fractional transforms
     * and resulting anti-aliasing.
@@ -117,6 +123,37 @@
         }
       });
     })();
+
+    fetch('https://raw.githubusercontent.com/UBC-GEOS472-Spring2022/antarctic_expedition-/main/endurance_original_route_point.geojson?token=GHSAT0AAAAAABQHXSG7GZTQHBK4NE7UYB7WYSPD5MA').then((res) => res.json())
+      .then((json) => {
+        const { features } = json;
+
+        for (let i = 0; i < features.length; i++) {
+          const projected = proj4(projString, features[i].geometry.coordinates);
+          features[i].geometry.coordinates = projected;
+
+          features[i]['crs'] = {
+            "type": "name",
+            "properties": {
+              "name": projKey
+            }
+          }
+          features[i]['properties']['i'] = i;
+        }
+
+
+        function onEachFeature(feature, layer) {
+          layer.bindPopup(`number: ${feature.properties.i}`, {closeButton: false});
+          layer.on('mouseover', function() { layer.openPopup(); });
+          layer.on('mouseout', function() { layer.closePopup(); });
+        }
+
+        L.Proj.geoJson(json, { onEachFeature: onEachFeature }).addTo(map);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+    };
 
 
 
